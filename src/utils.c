@@ -6,7 +6,7 @@
 /*   By: binario <binario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 10:51:31 by binario           #+#    #+#             */
-/*   Updated: 2025/02/08 21:12:49 by binario          ###   ########.fr       */
+/*   Updated: 2025/02/09 05:19:12 by binario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,42 +50,52 @@ void add_map_line(t_game *game, char *line)
 {
     char **new_map;
 
-    // Se o mapa ainda não foi alocado, aloca espaço inicial
+    if (!line) // Verifica se a linha é válida
+    {
+        ft_putstr_fd("Error: Invalid line\n", 2);
+        return;
+    }
+
+    // Se o mapa ainda não foi alocado, inicializa com espaço para 100 linhas
     if (!game->map)
     {
-        game->map = (char **)malloc(sizeof(char *) * 100); // Aloca espaço para 100 linhas
+        game->map = (char **)calloc(101, sizeof(char *));
         if (!game->map)
         {
             ft_error("Error: Memory allocation failed\n", 2);
             return;
         }
-        game->map_height = 0; // Inicializa a altura do mapa
+        game->map_height = 0;
     }
 
-    // Se o índice ultrapassar o tamanho alocado, realoca o mapa
+    // Se o índice ultrapassar o tamanho alocado, realoca com mais espaço
     if (game->map_height >= 100)
     {
-        new_map = (char **)malloc(sizeof(char *) * (game->map_height + 101)); // Aloca mais 100 linhas
+        new_map = (char **)calloc(game->map_height + 101, sizeof(char *));
         if (!new_map)
         {
             ft_putstr_fd("Error: Memory allocation failed\n", 2);
             return;
         }
-        ft_memcpy(new_map, game->map, sizeof(char *) * game->map_height); // Copia as linhas existentes
-        free(game->map); // Libera o mapa antigo
-        game->map = new_map; // Atualiza o ponteiro do mapa
+        // Copia os ponteiros das strings existentes
+        for (int i = 0; i < game->map_height; i++)
+            new_map[i] = game->map[i];
+
+        free(game->map);
+        game->map = new_map;
     }
 
-    // Adiciona a nova linha ao final do mapa
-    ft_strcpy(game->map[game->map_height],line);
+    // Aloca espaço para a nova linha e copia seu conteúdo
+    game->map[game->map_height] = ft_strdup(line);
     if (!game->map[game->map_height])
     {
         ft_putstr_fd("Error: Memory allocation failed\n", 2);
         return;
     }
 
-    game->map_height++; // Atualiza a altura do mapa
+    game->map_height++;
 }
+
 
 
 void set_player_direction(t_game *game, char dir)

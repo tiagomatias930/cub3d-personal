@@ -6,7 +6,7 @@
 /*   By: binario <binario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:12:18 by binario           #+#    #+#             */
-/*   Updated: 2025/02/08 21:04:34 by binario          ###   ########.fr       */
+/*   Updated: 2025/02/09 04:10:45 by binario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int init_game(t_game *game)
     game->so_texture_path = "./textures/img2.xpm";
     game->ea_texture_path = "./textures/img3.xpm";
     game->we_texture_path = "./textures/img4.xpm";
-
+ 
     game->mlx = mlx_init();
     if (!game->mlx)
         return (0);
