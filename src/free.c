@@ -6,11 +6,11 @@
 /*   By: binario <binario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:47:13 by binario           #+#    #+#             */
-/*   Updated: 2025/02/06 17:05:59 by binario          ###   ########.fr       */
+/*   Updated: 2025/02/08 09:36:24 by binario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 void    ft_error(const char *s, int fd)
 {

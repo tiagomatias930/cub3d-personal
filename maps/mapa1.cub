@@ -1,9 +1,9 @@
-NO img/imagem0.xpm   # Textura norte
-SO img/imagem1.xpm   # Textura sul
-EA img/imagem2.xpm    # Textura leste
-WE img/imagem3.xpm    # Textura oeste
-F 220,100,0                      # Cor do chão (RGB)
-C 225,30,0                       # Cor do teto (RGB)
+NO textures/img1.xpm
+SO textures/img2.xpm
+EA textures/img3.xpm
+WE textures/img3.xpm
+F 220,100,0
+C 225,30,0
 
         1111111111111111111111111
         1000000000110000000000001

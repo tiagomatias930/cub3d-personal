@@ -1,0 +1,32 @@
+
+Starting program: /home/binario/42-Projecto/cub3D_test/cub3d-personal/cub3D.application maps/teste.cu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[Inferior 1 (process 432290) exited with code 01]
+[?2004h[?2004l
+[?2004h(gdb) run maps/teste.cub
+[?2004l
+Starting program: /home/binario/42-Projecto/cub3D_test/cub3d-personal/cub3D.application maps/teste.cub
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000055555555b1c6 in add_map_line (game=0x7fffffffdb60, line=0x555555567330 "111111\n") at src/utils.c:74
+74	    game->map[index] = ft_strdup(line);
+[?2004h[?2004l
+[?2004h(gdb) bt
+[?2004l
+#0  0x000055555555b1c6 in add_map_line (game=0x7fffffffdb60, line=0x555555567330 "111111\n") at src/utils.c:74
+#1  0x000055555555b8ec in process_line (game=0x7fffffffdb60, line=0x555555567330 "111111\n") at src/utils.c:189
+#2  0x000055555555a70f in parse_file (game=0x7fffffffdb60, file=0x7fffffffe163 "maps/teste.cub") at src/parse.c:38
+#3  0x000055555555a5f4 in main (argc=2, argv=0x7fffffffdd98) at src/main.c:19
+[?2004h(gdb) bt
+[?2004l
+#0  0x000055555555b1c6 in add_map_line (game=0x7fffffffdb60, line=0x555555567330 "111111\n") at src/utils.c:74
+#1  0x000055555555b8ec in process_line (game=0x7fffffffdb60, line=0x555555567330 "111111\n") at src/utils.c:189
+#2  0x000055555555a70f in parse_file (game=0x7fffffffdb60, file=0x7fffffffe163 "maps/teste.cub") at src/parse.c:38
+#3  0x000055555555a5f4 in main (argc=2, argv=0x7fffffffdd98) at src/main.c:19
+[?2004h(gdb) lo[K[Kinfo locals
+[?2004l
+index = 0
+new_map = 0x55555555f0f1
